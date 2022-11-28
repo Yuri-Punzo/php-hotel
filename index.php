@@ -15,35 +15,35 @@ Se non viene specificato nessun filtro, visualizzare come in precedenza tutti gl
 $hotels = [
     [
         'name' => 'Hotel Belvedere',
-        'description' => 'Hotel Belvedere Descrizione',
+        'description' => 'Descrizione Hotel Belvedere',
         'parking' => true,
         'vote' => 4,
         'distance_to_center' => 10.4
     ],
     [
         'name' => 'Hotel Futuro',
-        'description' => 'Hotel Futuro Descrizione',
+        'description' => 'Descrizione Hotel Futuro',
         'parking' => true,
         'vote' => 2,
         'distance_to_center' => 2
     ],
     [
         'name' => 'Hotel Rivamare',
-        'description' => 'Hotel Rivamare Descrizione',
+        'description' => 'Descrizione Hotel Rivamare',
         'parking' => false,
         'vote' => 1,
         'distance_to_center' => 1
     ],
     [
         'name' => 'Hotel Bellavista',
-        'description' => 'Hotel Bellavista Descrizione',
+        'description' => 'Descrizione Hotel Bellavista',
         'parking' => false,
         'vote' => 5,
         'distance_to_center' => 5.5
     ],
     [
         'name' => 'Hotel Milano',
-        'description' => 'Hotel Milano Descrizione',
+        'description' => 'Descrizione Hotel Milano',
         'parking' => true,
         'vote' => 2,
         'distance_to_center' => 50
@@ -53,7 +53,11 @@ $hotels = [
 foreach ($hotels as $hotel) {
     echo $hotel["name"] . "<br>";
     echo $hotel["description"] . "<br>";
-    echo $hotel["parking"] . "<br>";
+    if ($hotel["parking"] === true) {
+        echo "Con parcheggio" . "<br>";
+    } else {
+        echo "Senza parcheggio" . "<br>";
+    }
     echo $hotel["vote"] . "<br>";
     echo $hotel["distance_to_center"] . "<br>";
     echo "<br>";
