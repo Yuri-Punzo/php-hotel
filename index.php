@@ -49,6 +49,7 @@ $hotels = [
         'distance_to_center' => 50
     ]
 ];
+
 /* foreach ($hotels as $hotel) {
     echo $hotel["name"] . "<br>";
     echo $hotel["description"] . "<br>";
@@ -62,27 +63,23 @@ $hotels = [
     echo "<br>";
 } */
 
-for ($i=0; $i < ; $i++) { 
-    # code...
-}
 $parking = $_GET["parking"];
 
 $rating = $_GET["rating"];
 
+$hotelsAppoggio = [];
+
+foreach ($hotels as $hotel) {
+    if ($hotel['parking'] == $parking) {
+        array_push($hotelsAppoggio, $hotel);
+    } elseif ($hotel['parking'] != $parking) {
+        array_push($hotelsAppoggio, $hotel);
+    } else {
+    }
+}
+
 /* per ogni hotel se il valore del voto è uguale a quello ottenuto con get ratings lo mostro altriemnti niente */
 
-
-
-/* <?php foreach ($hotels as $hotel) : ?>
-    <th scope="col">
-        <?php if ($parking === "true" && $hotel["parking"] === true) {
-            echo $hotel["name"];
-        } elseif ($parking === "false" && $hotel["parking"] === false) {
-            echo $hotel["name"];
-        } else {
-        } ?>
-    </th>
-<?php endforeach ?> */
 ?>
 
 
@@ -117,7 +114,7 @@ $rating = $_GET["rating"];
 
 
     <div class="table-responsive mt-5">
-        <?php foreach ($hotels as $hotel) : ?>
+        <?php foreach ($hotelsAppoggio as $hotel) : ?>
             <table class="table table-primary">
                 <thead>
                     <tr>
