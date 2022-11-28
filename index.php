@@ -63,10 +63,6 @@ $hotels = [
     echo "<br>";
 } */
 
-$parking = $_GET("parking");
-
-$rating = $_GET("rating");
-
 ?>
 
 
@@ -84,7 +80,7 @@ $rating = $_GET("rating");
 <body class="bg-dark text-light">
     <h1 class="pt-5 text-center">Hotels</h1>
 
-    <form action="index.php" method="get">
+    <form action="results.php" method="get">
         <select class="" name="parking" id="parking">
             <option selected hidden>Con parcheggio ?</option>
             <option value="true">Si</option>
