@@ -77,7 +77,7 @@ $hotels = [
     <title>PHP Hotels</title>
 </head>
 
-<body>
+<body class="bg-dark text-light">
     <h1 class="pt-5 text-center">Hotels</h1>
     <div class="table-responsive mt-5">
         <table class="table table-primary">
