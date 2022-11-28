@@ -78,9 +78,9 @@ $hotels = [
 </head>
 
 <body>
-    <div class="table-responsive">
-        <table class="table table-primary">
-            <?php foreach ($hotels as $hotel) : ?>
+    <?php foreach ($hotels as $hotel) : ?>
+        <div class="table-responsive">
+            <table class="table table-primary">
                 <thead>
                     <tr>
                         <th scope="col">
@@ -111,13 +111,10 @@ $hotels = [
                             <?php echo "Distanza dal centro: " . $hotel["distance_to_center"] ?>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="py-3"></td>
-                    </tr>
                 </tbody>
-            <?php endforeach ?>
-        </table>
-    </div>
+            </table>
+        </div>
+    <?php endforeach ?>
 </body>
 
 </html>
