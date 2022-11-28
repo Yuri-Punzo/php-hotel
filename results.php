@@ -38,9 +38,9 @@ $hotels = [
     ]
 ];
 
-/* $parking = $_GET("parking");
+$parking = $_GET["parking"];
 
-$rating = $_GET("rating"); */
+$rating = $_GET["rating"];
 
 /* per ogni hotel se il valore del voto è uguale a quello ottenuto con get ratings lo mostro altriemnti niente */
 ?>
@@ -65,7 +65,12 @@ $rating = $_GET("rating"); */
                 <tr>
                     <?php foreach ($hotels as $hotel) : ?>
                         <th scope="col">
-                            <?php echo $hotel["name"] ?>
+                            <?php if ($parking === "true" && $hotel["parking"] === true) {
+                                echo $hotel["name"];
+                            } elseif ($parking === "false" && $hotel["parking"] === false) {
+                                echo $hotel["name"];
+                            } else {
+                            } ?>
                         </th>
                     <?php endforeach ?>
                 </tr>
