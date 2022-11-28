@@ -49,7 +49,6 @@ $hotels = [
         'distance_to_center' => 50
     ]
 ];
-
 /* foreach ($hotels as $hotel) {
     echo $hotel["name"] . "<br>";
     echo $hotel["description"] . "<br>";
@@ -63,6 +62,27 @@ $hotels = [
     echo "<br>";
 } */
 
+for ($i=0; $i < ; $i++) { 
+    # code...
+}
+$parking = $_GET["parking"];
+
+$rating = $_GET["rating"];
+
+/* per ogni hotel se il valore del voto è uguale a quello ottenuto con get ratings lo mostro altriemnti niente */
+
+
+
+/* <?php foreach ($hotels as $hotel) : ?>
+    <th scope="col">
+        <?php if ($parking === "true" && $hotel["parking"] === true) {
+            echo $hotel["name"];
+        } elseif ($parking === "false" && $hotel["parking"] === false) {
+            echo $hotel["name"];
+        } else {
+        } ?>
+    </th>
+<?php endforeach ?> */
 ?>
 
 
@@ -78,9 +98,9 @@ $hotels = [
 </head>
 
 <body class="bg-dark text-light">
-    <h1 class="pt-5 text-center">Hotels</h1>
+    <h1 class="pt-5 text-center">Hotel</h1>
 
-    <form action="results.php" method="get">
+    <form action="index.php" method="get">
         <select class="" name="parking" id="parking">
             <option selected hidden>Con parcheggio ?</option>
             <option value="true">Si</option>
@@ -97,24 +117,20 @@ $hotels = [
 
 
     <div class="table-responsive mt-5">
-        <table class="table table-primary">
-            <thead>
-                <tr>
-                    <?php foreach ($hotels as $hotel) : ?>
+        <?php foreach ($hotels as $hotel) : ?>
+            <table class="table table-primary">
+                <thead>
+                    <tr>
                         <th scope="col">
                             <?php echo $hotel["name"] ?>
                         </th>
-                    <?php endforeach ?>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="">
-                    <?php foreach ($hotels as $hotel) : ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
                         <td scope="row"><?php echo $hotel["description"] ?></td>
-                    <?php endforeach ?>
-                </tr>
-                <tr class="">
-                    <?php foreach ($hotels as $hotel) : ?>
+                    </tr>
+                    <tr class="">
                         <td scope="row">
                             <?php if ($hotel["parking"] === true) {
                                 echo "Possibilità di parcheggio: Si" . "<br>";
@@ -122,24 +138,20 @@ $hotels = [
                                 echo "Possibilità di parcheggio: No" . "<br>";
                             } ?>
                         </td>
-                    <?php endforeach ?>
-                </tr>
-                <tr class="">
-                    <?php foreach ($hotels as $hotel) : ?>
+                    </tr>
+                    <tr class="">
                         <td scope="row">
                             <?php echo "Voto: " . $hotel["vote"] . "/5" ?>
                         </td>
-                    <?php endforeach ?>
-                </tr>
-                <tr class="">
-                    <?php foreach ($hotels as $hotel) : ?>
+                    </tr>
+                    <tr class="">
                         <td scope="row">
                             <?php echo "Distanza dal centro: " . $hotel["distance_to_center"] . " km" ?>
                         </td>
-                    <?php endforeach ?>
-                </tr>
-            </tbody>
-        </table>
+                    </tr>
+                </tbody>
+            </table>
+        <?php endforeach ?>
     </div>
 </body>
 
