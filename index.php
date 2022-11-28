@@ -63,6 +63,10 @@ $hotels = [
     echo "<br>";
 } */
 
+$parking = $_GET("parking");
+
+$rating = $_GET("rating");
+
 ?>
 
 
@@ -79,6 +83,23 @@ $hotels = [
 
 <body class="bg-dark text-light">
     <h1 class="pt-5 text-center">Hotels</h1>
+
+    <form action="index.php" method="get">
+        <select class="" name="parking" id="parking">
+            <option selected hidden>Con parcheggio ?</option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
+        </select>
+        <div class="mt-2">
+            <input type="number" name="rating" id="rating" placeholder="voto da 1 a 5">
+        </div>
+        <div class="mt-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
+        </div>
+    </form>
+
+
     <div class="table-responsive mt-5">
         <table class="table table-primary">
             <thead>
