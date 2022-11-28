@@ -13,7 +13,6 @@ Se non viene specificato nessun filtro, visualizzare come in precedenza tutti gl
 <?php
 
 $hotels = [
-
     [
         'name' => 'Hotel Belvedere',
         'description' => 'Hotel Belvedere Descrizione',
@@ -48,8 +47,16 @@ $hotels = [
         'parking' => true,
         'vote' => 2,
         'distance_to_center' => 50
-    ],
-
+    ]
 ];
+
+foreach ($hotels as $hotel) {
+    echo $hotel["name"] . "<br>";
+    echo $hotel["description"] . "<br>";
+    echo $hotel["parking"] . "<br>";
+    echo $hotel["vote"] . "<br>";
+    echo $hotel["distance_to_center"] . "<br>";
+    echo "<br>";
+}
 
 ?>
