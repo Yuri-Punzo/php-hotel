@@ -63,19 +63,24 @@ $hotels = [
     echo "<br>";
 } */
 
-$parking = $_GET["parking"];
+//var_dump($_GET);
 
-$rating = $_GET["rating"];
-
-$hotelsAppoggio = [];
-
-foreach ($hotels as $hotel) {
-    if ($hotel['parking'] == $parking) {
-        array_push($hotelsAppoggio, $hotel);
-    } elseif ($hotel['parking'] != $parking) {
-        array_push($hotelsAppoggio, $hotel);
-    } else {
-    }
+if (isset($_GET['parking']) && isset($_GET['rating'])) {
+    //var_dump('Filter by parking e rating');
+    // filter array $hotels 
+    $hotels = array_filter($hotels, function ($hotel) {
+        return $hotel['parking'] && $hotel['vote'] >= $_GET['rating'];
+    });
+} elseif (isset($_GET['parking'])) {
+    //var_dump('Filter by parking');
+    $hotels = array_filter($hotels, function ($hotel) {
+        return $hotel['parking'];
+    });
+} elseif (isset($_GET['rating'])) {
+    //var_dump('Filter by rating');
+    $hotels = array_filter($hotels, function ($hotel) {
+        return $hotel['vote'] >= $_GET['rating'];
+    });
 }
 
 /* per ogni hotel se il valore del voto è uguale a quello ottenuto con get ratings lo mostro altriemnti niente */
@@ -98,13 +103,19 @@ foreach ($hotels as $hotel) {
     <h1 class="pt-5 text-center">Hotel</h1>
 
     <form action="index.php" method="get">
-        <select class="" name="parking" id="parking">
-            <option selected hidden>Con parcheggio ?</option>
-            <option value="true">Si</option>
-            <option value="false">No</option>
-        </select>
+        <label for="parking">
+            Has Parking:
+            <input type="checkbox" name="parking" id="parking">
+        </label>
         <div class="mt-2">
-            <input type="number" name="rating" id="rating" placeholder="voto da 1 a 5">
+            <select name="rating" id="rating">
+                <option value="" disabled selected>Filter by rating</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5</option>
+            </select>
         </div>
         <div class="mt-2">
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -114,7 +125,7 @@ foreach ($hotels as $hotel) {
 
 
     <div class="table-responsive mt-5">
-        <?php foreach ($hotelsAppoggio as $hotel) : ?>
+        <?php foreach ($hotels as $hotel) : ?>
             <table class="table table-primary">
                 <thead>
                     <tr>
